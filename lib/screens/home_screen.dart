@@ -24,36 +24,30 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Shopping list',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: DefaultTabController(
-        length: 2,
-        child: Scaffold(
-          appBar: AppBar(
-            title: Text(_appBarTitle()),
-          ),
-          body: IndexedStack(
-            index: _selectedIndex,
-            children: const [
-              ShoppingListScreen(),
-              HistoryScreen(),
-            ],
-          ),
-          bottomNavigationBar: BottomNavigationBar(
-            items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.shopping_bag), label: 'List'),
-              BottomNavigationBarItem(icon: Icon(Icons.history), label: 'History'),
-            ],
-            currentIndex: _selectedIndex,
-            onTap: (index) {
-              setState(() {
-                _selectedIndex = index;
-              });
-            },
-          ),
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(_appBarTitle()),
+        ),
+        body: IndexedStack(
+          index: _selectedIndex,
+          children: const [
+            ShoppingListScreen(),
+            HistoryScreen(),
+          ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.shopping_bag), label: 'List'),
+            BottomNavigationBarItem(icon: Icon(Icons.history), label: 'History'),
+          ],
+          currentIndex: _selectedIndex,
+          onTap: (index) {
+            setState(() {
+              _selectedIndex = index;
+            });
+          },
         ),
       ),
     );
