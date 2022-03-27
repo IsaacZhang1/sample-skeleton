@@ -30,6 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
         appBar: AppBar(
           title: Text(_appBarTitle()),
         ),
+        backgroundColor: Theme.of(context).backgroundColor,
         body: IndexedStack(
           index: _selectedIndex,
           children: const [
